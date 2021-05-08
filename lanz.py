@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import urllib.request
 from gazpacho import Soup
-
+import time
 
 landing_page = urllib.request.urlopen("https://www.zdf.de/gesellschaft/markus-lanz")
 soup = BeautifulSoup(landing_page, "html.parser")
@@ -18,3 +18,6 @@ guest_soup = BeautifulSoup(get_guests, "html.parser")
 
 print(guest_soup.find("meta", {"property": "og:title"}).attrs['content'])
 print(guest_soup.find("meta", {"property": "og:description"}).attrs['content'])
+
+time.sleep(3)
+print(f"Mehr Infos: {followup}")
